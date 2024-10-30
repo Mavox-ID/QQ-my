@@ -4,23 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QQ-my</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>QQ-my: Услуги по созданию сайтов и приложений</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">QQ-my</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Услуги</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="jumbotron text-center bg-primary text-white">
+        <h1 class="display-4">QQ-my: Услуги по созданию сайтов и приложений</h1>
+        <p class="lead">Профессиональные решения для вашего бизнеса</p>
     </header>
-    <main>
-        <h2>Наши услуги</h2>
-        <ul>
-            <li>Создание сайтов <button onclick="addToCart('Создание сайтов')">Добавить в корзину</button></li>
-            <li>Регистрация домена <button onclick="addToCart('Регистрация домена')">Добавить в корзину</button></li>
-            <li>Создание приложений для Android и iOS <button onclick="addToCart('Создание приложений')">Добавить в корзину</button></li>
-        </ul>
-        <h2>Корзина</h2>
-        <ul id="cart"></ul>
-        <button onclick="checkout()">Оформить</button>
+
+    <main class="container my-5">
+        <h2 class="text-center mb-4">Наши услуги</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Создание сайтов</h5>
+                        <p class="card-text">Профессиональная разработка сайтов любой сложности.</p>
+                        <button class="btn btn-primary" onclick="addToCart('Создание сайтов')">Добавить в корзину</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Регистрация домена</h5>
+                        <p class="card-text">Быстрая и надежная регистрация доменов.</p>
+                        <button class="btn btn-primary" onclick="addToCart('Регистрация домена')">Добавить в корзину</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Создание приложений</h5>
+                        <p class="card-text">Разработка мобильных приложений для Android и iOS.</p>
+                        <button class="btn btn-primary" onclick="addToCart('Создание приложений')">Добавить в корзину</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-center mb-4">Корзина</h2>
+        <ul id="cart" class="list-group mb-4"></ul>
+        <button class="btn btn-success btn-block" onclick="checkout()">Оформить</button>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

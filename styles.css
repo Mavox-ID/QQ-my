@@ -1,27 +1,48 @@
 body {
-    background-color: #1a1a1a;
-    color: #d4d4d4;
-    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-header {
-    background-color: #4b0082;
-    padding: 10px;
-    text-align: center;
+.jumbotron {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 25px;
+    margin-bottom: 0;
 }
 
-h1, h2 {
-    color: #ffffff;
-}
-
-button {
-    background-color: #4b0082;
-    color: #ffffff;
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+    border-radius: 10px;
 }
 
-button:hover {
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.btn-primary {
     background-color: #6a0dad;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #8a2be2;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
 }

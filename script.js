@@ -3,6 +3,7 @@ let cart = [];
 function addToCart(service) {
     cart.push(service);
     updateCart();
+    alert(`${service} добавлено в корзину!`);
 }
 
 function updateCart() {
@@ -10,8 +11,10 @@ function updateCart() {
     cartElement.innerHTML = '';
     cart.forEach((item, index) => {
         const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
         li.textContent = item;
         const removeButton = document.createElement('button');
+        removeButton.className = 'btn btn-danger btn-sm';
         removeButton.textContent = 'Удалить';
         removeButton.onclick = () => {
             cart.splice(index, 1);
