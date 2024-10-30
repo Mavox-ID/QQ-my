@@ -30,9 +30,19 @@ function checkout() {
         alert('Корзина пуста!');
         return;
     }
+
     const name = prompt('Введите ваше имя:');
     const email = prompt('Введите ваш email:');
-    alert(`Спасибо, ${name}! Ваш заказ оформлен.`);
+
+    // Генерация случайного кода верификации
+    const verificationCode = Math.floor(100000 + Math.random() * 900000); // Генерация 6-значного кода
+
+    // Формирование сообщения
+    const orderDetails = `Спасибо, ${name}! Вы заказали:\n${cart.join(', ')}\n\nВаш код верификации: ${verificationCode}\n\nПожалуйста, напишите мне на почту: markd.voznyuk@gmail.com`;
+
+    alert(orderDetails);
+
+    // Очистка корзины
     cart = [];
     updateCart();
 }
