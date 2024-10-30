@@ -37,6 +37,10 @@ function checkout() {
     updateCart();
 }
 
+function revealSecret(message) {
+    alert(message);
+}
+
 // Обработка отправки формы
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -44,7 +48,22 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
 
-    // Отправка данных на email (это нужно реализовать на сервере)
-    alert(`Сообщение отправлено! Имя: ${name}, Email: ${email}, Сообщение: ${message}`);
-    this.reset(); // Сброс формы
+    fetch('YOUR_FUNCTION_URL', { // Замените на URL вашей функции
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, message })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Сообщение отправлено!');
+            this.reset(); // Сброс формы
+        } else {
+            alert('Ошибка при отправке сообщения.');
+        }
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+    });
 });
