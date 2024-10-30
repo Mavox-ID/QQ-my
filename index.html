@@ -16,13 +16,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Главная</a>
+                    <a class="nav-link" href="#about">О нас</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Услуги</a>
+                    <a class="nav-link" href="#services">Услуги</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Контакты</a>
+                    <a class="nav-link" href="#contact">Контакты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cart">Корзина</a>
                 </li>
             </ul>
         </div>
@@ -33,7 +36,13 @@
         <p class="lead">Профессиональные решения для вашего бизнеса</p>
     </header>
 
-    <main class="container my-5">
+    <section id="about" class="container my-5">
+        <h2 class="text-center mb-4">О нас</h2>
+        <p>Мы предоставляем услуги по созданию сайтов и приложений, чтобы помочь вашему бизнесу расти и развиваться. Наша команда профессионалов готова предложить вам лучшие решения.</p>
+        <img src="your-image.jpg" alt="About Us" class="img-fluid">
+    </section>
+
+    <section id="services" class="container my-5">
         <h2 class="text-center mb-4">Наши услуги</h2>
         <div class="row">
             <div class="col-md-4">
@@ -64,11 +73,32 @@
                 </div>
             </div>
         </div>
+    </section>
 
+    <section id="contact" class="container my-5">
+        <h2 class="text-center mb-4">Контакты</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение</label>
+                <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Отправить</button>
+        </form>
+    </section>
+
+    <section id="cart" class="container my-5">
         <h2 class="text-center mb-4">Корзина</h2>
-        <ul id="cart" class="list-group mb-4"></ul>
+        <ul id="cartList" class="list-group mb-4"></ul>
         <button class="btn btn-success btn-block" onclick="checkout()">Оформить</button>
-    </main>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

@@ -7,7 +7,7 @@ function addToCart(service) {
 }
 
 function updateCart() {
-    const cartElement = document.getElementById('cart');
+    const cartElement = document.getElementById('cartList');
     cartElement.innerHTML = '';
     cart.forEach((item, index) => {
         const li = document.createElement('li');
@@ -36,3 +36,15 @@ function checkout() {
     cart = [];
     updateCart();
 }
+
+// Обработка отправки формы
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Отправка данных на email (это нужно реализовать на сервере)
+    alert(`Сообщение отправлено! Имя: ${name}, Email: ${email}, Сообщение: ${message}`);
+    this.reset(); // Сброс формы
+});
