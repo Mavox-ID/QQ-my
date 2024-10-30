@@ -38,7 +38,7 @@ function checkout() {
     const verificationCode = Math.floor(100000 + Math.random() * 900000); // Генерация 6-значного кода
 
     // Формирование сообщения
-    const orderDetails = `Спасибо, ${name}! Вы заказали:\n${cart.join(', ')}\n\nВаш код верификации: ${verificationCode}\n\nПожалуйста, напишите мне на почту: markd.voznyuk@gmail.com`;
+    const orderDetails = `Спасибо, ${name}! Вы заказали:\n${cart.join(', ')}\n\nВаш код верификации: ${verificationCode}\n\nПожалуйста, напишите мне на почту для заказа: markd.voznyuk@gmail.com`;
 
     alert(orderDetails);
 
@@ -70,7 +70,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             alert('Сообщение отправлено!');
             this.reset(); // Сброс формы
         } else {
-            alert('Ошибка при отправке сообщения.');
+            alert('Ошибка при отправке сообщения. Возможно Функция временно недоступна');
         }
     })
     .catch(error => {
