@@ -46,3 +46,15 @@ body {
 .btn-success:hover {
     background-color: #218838;
 }
+
+.blockquote {
+    border-left: 5px solid #6a0dad; /* Цветовая линия слева */
+    padding-left: 15px; /* Отступ слева */
+    margin-bottom: 20px; /* Отступ снизу */
+    font-style: italic; /* Курсив для текста */
+}
+
+.blockquote-footer {
+    font-size: 0.9em; /* Уменьшенный размер шрифта для автора */
+    color: #6c757d; /* Цвет для автора */
+}
