@@ -60,6 +60,7 @@ function checkout() {
             <p>Ваш код верификации: ${verificationCode}</p>
             <p>Спасибо за заказ!</p>
             <p>Отправьте, пожалуйста, форму по ссылке: <a href="https://formsubmit.co/el/refiwu" style="color: lightblue;">https://formsubmit.co/el/refiwu</a></p>
+            <p>Укажите там: Тема: Заказ №${verificationCode} текст: <введите информацию о себе и что ви заказали> также сли ви заказали например сайт то напишите комментарий что ви хотите чтоби ми зделали зделать например сайт ярким и так далее!</p>
             <button id="closeMessage" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">OK</button>
         </div>
     `;
