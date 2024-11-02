@@ -1,13 +1,11 @@
 let cart = [];
 
-// Добавление услуги в корзину
 function addToCart(service) {
     cart.push(service);
     updateCart();
     alert(`${service} добавлено в корзину!`);
 }
 
-// Обновление отображения корзины
 function updateCart() {
     const cartElement = document.getElementById('cartList');
     cartElement.innerHTML = '';
@@ -27,51 +25,55 @@ function updateCart() {
     });
 }
 
-// Оформление заказа
 function checkout() {
     if (cart.length === 0) {
         alert('Корзина пуста!');
         return;
     }
 
+    const name = prompt('Введите ваше имя:');
+    const email = prompt('Введите ваш email:');
+
+    // Генерация случайного кода верификации
+    const verificationCode = Math.floor(100000 + Math.random() * 900000); // Генерация 6-значного кода
+
+    // Формирование сообщения
+    const orderDetails = `Спасибо, ${name}! Вы заказали:\n${cart.join(', ')}\n\nВаш код верификации: ${verificationCode}\n\nПожалуйста, напишите мне на почту для заказа: admin@qq-my.pp.ua (если ви заказиваете домен то для управлением домена пишите на code@qq-my.pp.ua, введите следующее: Тема: help, текст: /help <Ваш код верефикации> после етого ждите пока ви получете подробно что как почему и так далее для управление домена, команди и так далее!)`;
+
+    alert(orderDetails);
+
+    // Очистка корзины
+    cart = [];
+    updateCart();
+}
+
+function revealSecret(message) {
+    alert(message);
+}
+
+// Обработка отправки формы
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
-    const clientMessage = document.getElementById('clientMessage').value; // Сообщение от клиента
-    const orderDetails = cart.join(', '); // Детали заказа
+    const message = document.getElementById('message').value;
 
-    // Отправка уведомления на почту
-    fetch('send_email.php', {
+    fetch('YOUR_FUNCTION_URL', { // Замените на URL вашей функции
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            clientMessage: clientMessage,
-            orderDetails: orderDetails
-        })
-    }).then(response => {
+        body: JSON.stringify({ name, email, message })
+    })
+    .then(response => {
         if (response.ok) {
-            alert('Заказ отправлен!');
-            cart = []; // Очистка корзины после отправки
-            updateCart();
+            alert('Сообщение отправлено!');
+            this.reset(); // Сброс формы
         } else {
-            alert('Ошибка при отправке заказа.');
+            alert('Ошибка при отправке сообщения. Возможно Функция временно недоступна');
         }
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
     });
-}
-
-// Переключение языка
-let isEnglish = false;
-
-function toggleLanguage() {
-    isEnglish = !isEnglish;
-    document.getElementById('languageToggle').innerText = isEnglish ? 'Перевести на русский' : 'Switch to English';
-    
-    // Переключение текста на английский или русский
-    const elements = document.querySelectorAll('[data-original]');
-    elements.forEach(el => {
-        el.innerText = isEnglish ? el.getAttribute('data-translate') : el.getAttribute('data-original');
-    });
-}
+});
