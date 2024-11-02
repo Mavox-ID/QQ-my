@@ -38,9 +38,38 @@ function checkout() {
     const verificationCode = Math.floor(100000 + Math.random() * 900000); // Генерация 6-значного кода
 
     // Формирование сообщения
-    const orderDetails = `Спасибо, ${name}! Вы заказали:\n${cart.join(', ')}\n\nВаш код верификации: ${verificationCode}\n\n Спасибо за заказ! Отправте пожалуйста форму по силлке: https://formsubmit.co/el/refiwu тему: Заказ №<Ваш код верефикации> текст: что ви заказивали и если например сайт то ваш коментарий например зделай те сайт красивим и так далее! Спасибо! Удачи в создании своего будущего!`;
+    const orderDetails = `Спасибо, ${name}! Вы заказали: ${cart.join(', ')}\nВаш код верификации: ${verificationCode}\n\nСпасибо за заказ! Отправьте, пожалуйста, форму по ссылке: https://formsubmit.co/el/refiwu тему: Заказ №${verificationCode} текст: что вы заказывали и если, например, сайт, то ваш комментарий, например, сделайте сайт красивым и так далее!`;
 
-    alert(orderDetails);
+    // Отображение сообщения на весь экран
+    const messageContainer = document.createElement('div');
+    messageContainer.style.position = 'fixed';
+    messageContainer.style.top = '0';
+    messageContainer.style.left = '0';
+    messageContainer.style.width = '100%';
+    messageContainer.style.height = '100%';
+    messageContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    messageContainer.style.color = 'white';
+    messageContainer.style.display = 'flex';
+    messageContainer.style.alignItems = 'center';
+    messageContainer.style.justifyContent = 'center';
+    messageContainer.style.zIndex = '1000';
+    messageContainer.innerHTML = `
+        <div style="text-align: center;">
+            <h2>Спасибо, ${name}!</h2>
+            <p>Вы заказали: ${cart.join(', ')}</p>
+            <p>Ваш код верификации: ${verificationCode}</p>
+            <p>Спасибо за заказ!</p>
+            <p>Отправьте, пожалуйста, форму по ссылке: <a href="https://formsubmit.co/el/refiwu" style="color: lightblue;">https://formsubmit.co/el/refiwu</a></p>
+            <button id="closeMessage" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">OK</button>
+        </div>
+    `;
+
+    document.body.appendChild(messageContainer);
+
+    // Обработчик кнопки закрытия
+    document.getElementById('closeMessage').onclick = function() {
+        document.body.removeChild(messageContainer);
+    };
 
     // Очистка корзины
     cart = [];
