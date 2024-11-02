@@ -7,7 +7,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Вставьте код Google Analytics здесь -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16761591211"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -17,6 +17,9 @@
     </script>
 </head>
 <body>
+    <!-- Остальной код вашего сайта -->
+</body>
+</html>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">QQ-my</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +53,8 @@
     </nav>
 
     <header class="jumbotron text-center bg-primary text-white">
-        <h1 class="display-4" data-original="QQ-my: Мини желания возрастают!" data-translate="QQ-my: Mini wishes grow!">QQ-my: Мини желания возрастают!</h1>
-        <p class="lead" data-original="Профессиональные решения для вашей мечты!" data-translate="Professional solutions for your dream!">Профессиональные решения для вашей мечты!</p>
+        <h1 class="display-4">QQ-my: Мини желания возрастают!</h1>
+        <p class="lead">Профессиональные решения для вашей мечти!</p>
     </header>
 
     <section id="about" class="container my-5">
@@ -62,7 +65,7 @@
 
     <section id="services" class="container my-5">
         <h2 class="text-center mb-4">Наши услуги</h2>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center"> <!-- Добавлено justify-content-center -->
             <div class="col-md-4">
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
@@ -108,10 +111,9 @@
         <blockquote class="blockquote">
             <p class="mb-0">Спасибо за сайт и домен.</p>
             <footer class="blockquote-footer">
-                <span class="stars">★★★★★</span>
+                <span class="stars">★★★★★</span> <!-- Звезды для оценки -->
                 Иван Иванов
             </footer>
-        </blockquote>
     </section>
 
     <section id="contact" class="container my-5">
@@ -133,7 +135,7 @@
     <script src="script.js"></script>
     <script>
         let isEnglish = false;
-
+    
         function toggleLanguage() {
             isEnglish = !isEnglish;
             document.getElementById('languageToggle').innerText = isEnglish ? 'Перевести на русский' : 'Switch to English';
@@ -144,33 +146,6 @@
                 el.innerText = isEnglish ? el.getAttribute('data-translate') : el.getAttribute('data-original');
             });
         }
-
-        document.getElementById('contactForm').onsubmit = function(event) {
-            event.preventDefault(); // Предотвращаем стандартное поведение формы
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const orderDetails = "Ваш заказ"; // Здесь добавьте детали заказа
-
-            // Отправка уведомления на почту
-            fetch('send_email.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    orderDetails: orderDetails
-                })
-            }).then(response => {
-                if (response.ok) {
-                    alert('Заказ отправлен!');
-                } else {
-                    alert('Ошибка при отправке заказа.');
-                }
-            });
-        };
     </script>
 </body>
 </html>
