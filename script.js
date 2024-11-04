@@ -60,7 +60,7 @@ function checkout() {
             <p>Ваш код верификации: ${verificationCode}</p>
             <p>Спасибо за заказ!</p>
             <p>Отправьте, пожалуйста, форму по ссылке: <a href="https://formsubmit.co/el/refiwu" style="color: lightblue;">https://formsubmit.co/el/refiwu</a></p>
-            <p>Укажите там: Тема: Заказ №${verificationCode} текст: <введите информацию о себе и что ви заказали> также если ви заказали например сайт то напишите комментарий что ви хотите чтоби ми зделали зделать например сайт ярким и так далее!</p>
+            <p>Укажите там: Тема: Заказ №${verificationCode} текст: <введите информацию о себе и что вы заказали> также если вы заказали, например, сайт, то напишите комментарий, что вы хотите, чтобы мы сделали, например, сайт ярким и так далее!</p>
             <button id="closeMessage" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">OK</button>
         </div>
     `;
@@ -80,30 +80,3 @@ function checkout() {
 function revealSecret(message) {
     alert(message);
 }
-
-// Обработка отправки формы
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    fetch('YOUR_FUNCTION_URL', { // Замените на URL вашей функции
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name, email, message })
-    })
-    .then(response => {
-        if (response.ok) {
-            alert('Сообщение отправлено!');
-            this.reset(); // Сброс формы
-        } else {
-            alert('Ошибка при отправке сообщения. Возможно Функция временно недоступна');
-        }
-    })
-    .catch(error => {
-        console.error('Ошибка:', error);
-    });
-});
