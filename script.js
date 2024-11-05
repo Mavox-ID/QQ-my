@@ -32,7 +32,6 @@ function checkout() {
     }
 
     const name = prompt('Введите ваше имя:');
-    const email = prompt('Введите ваш email:');
 
     // Генерация случайного кода верификации
     const verificationCode = Math.floor(100000 + Math.random() * 900000); // Генерация 6-значного кода
