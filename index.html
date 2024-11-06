@@ -4,41 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QQ-my</title>
-    <link rel="icon" href="icoo.png" type="image/png"> <!-- Добавлено для иконки -->
+    <link rel="icon" href="icoo.png" type="image/png">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
-    <meta name="author" content="QQ-my">
-    <meta name="author" content="qq">
-    <meta name="author" content="QQ">
-    <meta name="author" content="qq-my">
-    <meta name="author" content="qq-MY">
-    <meta name="author" content="qq-mY">
-    <meta name="author" content="qq-My">
-    <meta name="author" content="Qq-mY">
-    <meta name="author" content="qQ-My">
-    <meta name="description" content="QQ-my - создание всего для вас! А также для вашего бизнеса!">
-    <meta name="keywords" content="создание сайтов, регистрация доменов, мобильные приложения, SSL-сертификаты есть все! Заходите!">
-
-    <!-- Вставьте код Google Analytics здесь -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16761591211"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'AW-16761591211');
-    </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6709304738125184"
-    crossorigin="anonymous"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16761591211"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-16761591211');
-</script>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Светлый фон */
+        }
+        .halloween-header {
+            background-color: orange; /* Оранжевый фон для хэллоуина */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .pumpkin {
+            width: 50px;
+            height: auto;
+            margin: 0 5px; /* Отступы между тыквами */
+        }
+        .footer {
+            background-color: #343a40; /* Темный фон для футера */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -64,16 +54,23 @@
                     <a class="nav-link" href="#cart">Корзина</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="work.html">Работать с нами</a> <!-- Добавлена ссылка -->
+                    <a class="nav-link" href="work.html">Работать с нами</a>
                 </li>
             </ul>
         </div>
     </nav>
 
     <header class="jumbotron text-center bg-primary text-white">
-        <h1 class="display-4">QQ-my: Мини желания возрастают!</h1>
+        <h1 class="display-4">QQ-my: С счастливым Хэллоуином! Ждете новый год?</h1>
         <p class="lead">Профессиональные решения для вашей мечты!</p>
     </header>
+
+    <div class="halloween-header">
+        <h2>С Хэллоуином!</h2>
+        <img src="pumpkin.png" alt="Тыква" class="pumpkin">
+        <img src="pumpkin.png" alt="Тыква" class="pumpkin">
+        <img src="pumpkin.png" alt="Тыква" class="pumpkin">
+    </div>
 
     <section id="about" class="container my-5">
         <h2 class="text-center mb-4">О нас</h2>
@@ -88,7 +85,9 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Создание сайтов</h5>
-                        <p class="card-text">Профессиональная разработка сайтов любой сложности. Всего за 10 USD</p>
+                        <p class="card-text">
+                            <span style="text-decoration: line-through;">10 USD</span> <strong>5 USD</strong>
+                        </p>
                         <button class="btn btn-primary" onclick="addToCart('Создание сайтов')">Добавить в корзину</button>
                     </div>
                 </div>
@@ -97,7 +96,9 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Регистрация домена</h5>
-                        <p class="card-text">Быстрая и надежная регистрация доменов. Всего за 5 USD</p>
+                        <p class="card-text">
+                            <span style="text-decoration: line-through;">5 USD</span> <strong>2 USD</strong>
+                        </p>
                         <button class="btn btn-primary" onclick="addToCart('Регистрация домена')">Добавить в корзину</button>
                     </div>
                 </div>
@@ -106,7 +107,9 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">Создание приложений</h5>
-                        <p class="card-text">Разработка мобильных приложений для Android и iOS. Всего от 15 USD</p>
+                        <p class="card-text">
+                            <span style="text-decoration: line-through;">15 USD</span> <strong>10 USD</strong>
+                        </p>
                         <button class="btn btn-primary" onclick="addToCart('Создание приложений')">Добавить в корзину</button>
                     </div>
                 </div>
@@ -115,7 +118,9 @@
                 <div class="card mb-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title">SSL-сертификаты</h5>
-                        <p class="card-text">Создание самоподписанных и лицензионных сертификатов для вашего сайта. От 1 USD</p>
+                        <p class="card-text">
+                            <strong>Бесплатно</strong>
+                        </p>
                         <button class="btn btn-primary" onclick="addToCart('SSL-сертификаты')">Добавить в корзину</button>
                     </div>
                 </div>
@@ -148,6 +153,10 @@
         <button class="btn btn-success btn-block" onclick="checkout()">Оформить</button>
     </section>
 
+    <footer class="footer">
+        <p>© 2024 Все права защищены.</p>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -167,4 +176,4 @@
         }
     </script>
 </body>
-</html> 
+</html>
