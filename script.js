@@ -1,4 +1,5 @@
 let cart = [];
+let orders = []; // Массив для хранения информации о заказах
 
 function addToCart(service) {
     cart.push(service);
@@ -38,6 +39,15 @@ function checkout() {
 
     // Формирование сообщения
     const orderDetails = `Спасибо, ${name}! Вы заказали: ${cart.join(', ')}\nВаш код верификации: ${verificationCode}\n\nСпасибо за заказ! Отправьте, пожалуйста, форму по ссылке: https://formsubmit.co/el/refiwu тему: Заказ №${verificationCode} текст: что вы заказывали и если, например, сайт, то ваш комментарий, например, сделайте сайт красивым и так далее!`;
+
+    // Сохранение информации о заказе
+    const orderInfo = {
+        name: name,
+        items: cart.join(', '),
+        verificationCode: verificationCode,
+        timestamp: new Date().toLocaleString() // Время заказа
+    };
+    orders.push(orderInfo); // Добавление заказа в массив
 
     // Отображение сообщения на весь экран
     const messageContainer = document.createElement('div');
