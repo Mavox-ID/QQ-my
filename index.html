@@ -67,8 +67,8 @@
     </nav>
 
     <header class="jumbotron text-center bg-primary text-white">
-        <h1 class="display-4">QQ-my: До нового года осталось 2 месяца! Урааааааааа...</h1>
-        <p class="lead">Профессиональные решения для вашей мечты!</p>
+        <h1 class="display-4"><span id="countdown"></span></h1>
+        <p class="lead">Успей зайти в новий год и получить что угодно бесплатно (У тебя будет 10 минут!)</p>
     </header>
 
     <div class="newyear-header">
@@ -92,7 +92,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Создание сайтов</h5>
                         <p class="card-text">
-                            <span style="text-decoration: line-through;">10 USD</span> <strong>5 USD</strong>
+                            <span style="text-decoration: line-through;">10 USD</span> <strong>7 USD</strong>
                         </p>
                         <button class="btn btn-primary" onclick="addToCart('Создание сайтов')">Добавить в корзину</button>
                     </div>
@@ -103,7 +103,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Регистрация домена</h5>
                         <p class="card-text">
-                            <span style="text-decoration: line-through;">5 USD</span> <strong>2 USD</strong>
+                            <span style="text-decoration: line-through;">5 USD</span> <strong>3 USD</strong>
                         </p>
                         <button class="btn btn-primary" onclick="addToCart('Регистрация домена')">Добавить в корзину</button>
                     </div>
@@ -114,7 +114,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Создание приложений</h5>
                         <p class="card-text">
-                            <span style="text-decoration: line-through;">15 USD</span> <strong>10 USD</strong>
+                            <span style="text-decoration: line-through;">15 USD</span> <strong>12 USD</strong>
                         </p>
                         <button class="btn btn-primary" onclick="addToCart('Создание приложений')">Добавить в корзину</button>
                     </div>
@@ -125,7 +125,7 @@
                     <div class="card-body">
                         <h5 class="card-title">SSL-сертификаты</h5>
                         <p class="card-text">
-                            <strong>Бесплатно</strong>
+                            <strong>Бесплатно (До 01.12.24)</strong>
                         </p>
                         <button class="btn btn-primary" onclick="addToCart('SSL-сертификаты')">Добавить в корзину</button>
                     </div>
@@ -188,7 +188,7 @@
     </section>
 
     <footer class="footer">
-        <p>© 2024 Все права защищены. Version 3.1.0. We are waiting for the New Year!</p>
+        <p>© 2024 Все права защищены. Version 3.1.5. We are waiting for the New Year!</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -209,5 +209,22 @@
             });
         }
     </script>
+<script>
+    function updateCountdown() {
+        const now = new Date();
+        const newYear = new Date('January 1, 2025 00:00:00');
+        const difference = newYear - now;
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerText = `Новий год через: ${days} д. ${hours} ч. ${minutes} м. ${seconds} с.`;
+    }
+
+    // Запускаем обновление таймера каждую секунду
+    setInterval(updateCountdown, 1000);
+</script>   
 </body>
 </html>
