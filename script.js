@@ -120,6 +120,39 @@ function writeReview() {
     };
 }
 
+function rrr() {
+    // Отображение сообщения на весь экран
+    const messageContainer = document.createElement('div');
+    messageContainer.style.position = 'fixed';
+    messageContainer.style.top = '0';
+    messageContainer.style.left = '0';
+    messageContainer.style.width = '100%';
+    messageContainer.style.height = '100%';
+    messageContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    messageContainer.style.color = 'white';
+    messageContainer.style.display = 'flex';
+    messageContainer.style.alignItems = 'center';
+    messageContainer.style.justifyContent = 'center';
+    messageContainer.style.zIndex = '1000';
+    messageContainer.innerHTML = `
+        <div style="text-align: center;">
+            <h2>Внимание!</h2>
+            <p>Ви хотите перейти в консоль QQ-my!</p>
+            <p>Следующяя опция предназначена для администрации QQ-my, если ви администратор то смело нажимайте на силлку а если нет то не медленно нажмите на кнопку закрить ниже!</p>
+            <p>Консоль QQ-my:</p>
+            <p><a href="https://qq-my.pp.ua/r.html" style="color: lightblue;">Консоль QQ-my (Только для администрации)</a></p>
+            <button id="closeMessage" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">Закрить</button>
+        </div>
+    `;
+
+    document.body.appendChild(messageContainer);
+
+    // Обработчик кнопки закрытия
+    document.getElementById('closeMessage').onclick = function() {
+        document.body.removeChild(messageContainer);
+    };
+}
+
 function revealSecret(message) {
     alert(message);
 }
