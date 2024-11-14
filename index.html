@@ -159,7 +159,7 @@
     </section>
 
     <section id="working-hours" class="container my-5">
-        <h2 class="text-center mb-4">Работа компании</h2>
+        <h2 class="text-center mb-4">Рабочие дни компании</h2>
         <p><strong>ПН:</strong> 16:00-21:10</p>
         <p><strong>ВТ:</strong> 16:00-21:10</p>
         <p><strong>СР:</strong> 17:00-21:10</p>
@@ -168,7 +168,7 @@
         <p><strong>СБ:</strong> 9:00-21:00</p>
         <p><strong>ВС:</strong> 9:30-21:00</p>
 
-        <h2 class="text-center mb-4">Работа авто-бота</h2>
+        <h2 class="text-center mb-4">Рабочие дни авто-бота</h2>
         <p><strong>ПН:</strong> 18:00-21:10</p>
         <p><strong>ВТ:</strong> 18:00-21:10</p>
         <p><strong>СР:</strong> 18:00-21:10</p>
@@ -203,7 +203,7 @@
     </section>
 
     <footer class="footer">
-        <p>© 2024 Все права защищены. Version 3.3.6. We are waiting for the New Year!</p>
+        <p>© 2024 Все права защищены. Version 3.3.7. We are waiting for the New Year!</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -305,7 +305,7 @@
         snowflak.innerText = '❄'; // Символ снежинки
         snowflak.classList.add('snowflak');
         snowflak.style.left = Math.random() * window.innerWidth + 'px'; // Случайная горизонтальная позиция
-        snowflak.style.animationDuration = 5 + Math.random() * 10 + 's'; // Случайная длительность анимации
+        snowflak.style.animationDuration = 5 + Math.random() * 20 + 's'; // Случайная длительность анимации
         snowflak.style.opacity = Math.random(); // Случайная прозрачность
         snowflak.style.fontSize = Math.random() * 20 + 10 + 'px'; // Случайный размер снежинки
         document.body.appendChild(snowflak);
@@ -317,8 +317,7 @@
     }
 
     // Создание снежинок с интервалом
-    setInterval(createSnowflak, 40);
+    setInterval(createSnowflak, 120);
 </script>
-    
 </body>
 </html>
