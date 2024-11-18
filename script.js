@@ -68,8 +68,8 @@ function checkout() {
             <p>Вы заказали: ${cart.join(', ')}</p>
             <p>Ваш код верификации: ${verificationCode}</p>
             <p>Спасибо за заказ!</p>
-            <p>Отправьте, пожалуйста, форму по ссылке: <a href="https://formsubmit.co/el/refiwu" style="color: lightblue;">Заказать</a></p>
-            <p>Укажите там: Тема: Заказ №${verificationCode} текст: <введите информацию о себе и что вы заказали> также если вы заказали, например, сайт, то напишите комментарий, что вы хотите, чтобы мы сделали, например, сайт ярким и так далее!</p>
+            <p>Отправьте пожалуйста, форму по ссылке: <a href="#tally-open=mJV6xY&tally-layout=modal&tally-width=700" style="color: lightblue;">Заказать</a></p>
+            <p>Перед тем как перейти к оформлению заказа, обязательно сохраните код верификации, сделайте снимок экрана и запишите другие данные, которые могут понадобиться при заполнении формы.</p>
             <button id="closeMessage" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">OK</button>
         </div>
     `;
@@ -104,10 +104,7 @@ function writeReview() {
         <div style="text-align: center;">
             <h2>Привет!</h2>
             <p>Чтобы оставить отзыв, напишите его на странице:</p>
-            <p><a href="https://formsubmit.co/el/refiwu" style="color: lightblue;">Оставить одзыв</a></p>
-            <p>Тема: Отзыв, текст: <первий рядок вешего имени, второй рядок вашего отзыва, и третего сколько звезд, ви можете написать например пять или так: *></p>
-            <p>После оставления запроса о добавлении одзыва ожидайте около 1-3 дней до ответа поддержки на вашу указаную почту или добавления вашего одзыва на сайт!></p>
-            <p>Внимание! Если вам отвечает поддержка то скорее всего ваш одзыв разместить нельзя! Есть много причин но все можете посмотреть во вкладке "Правила" на сайте или перейдя по силлке: <a href="https://qq-my.pp.ua/rules.html" style="color: lightblue;">https://qq-my.pp.ua/rules.html</a>></p>
+            <p><a href="#tally-open=wo0yZ5&tally-layout=modal&tally-width=700" style="color: lightblue;">Оставить одзыв</a></p>
             <button id="closeMessage" style="margin-top: 20px; padding: 10px 20px; font-size: 16px;">OK</button>
         </div>
     `;
