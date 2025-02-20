@@ -12,7 +12,7 @@
             background-color: #f8f9fa; /* Светлый фон */
         }
         .newyear-header {
-            background-color: #001574; /* Зеленый фон для Нового года */
+            background-color: #f1b50e; /* Зеленый фон для Нового года */
             color: white;
             padding: 20px;
             text-align: center;
@@ -28,6 +28,10 @@
             text-align: center;
             padding: 20px;
         }
+
+        .bg-primary {
+       background-color: #ff8800 !important; /* Светло-синий цвет */
+   }
 </style>
 </head>
 <body>
@@ -59,14 +63,32 @@
 
     <header class="jumbotron text-center bg-primary text-white">
         <h1 class="display-4">QQ-my: Желаем всего наилучшего!</h1>
-        <p class="lead">Ми зделали свою ОС! Переходи <button class="btn btn-primary" onclick="window.open('https://aso-os.pp.ua', '_blank')">Перейти</button></p>
-    </header>
+        </header>
 
     <div class="newyear-header">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
         <h2><span id="countdown"></span></h2>
-        <img src="snowflake.png" alt="." class="snowflake">
-        <img src="snowflake.png" alt="." class="snowflake">
-        <img src="snowflake.png" alt="." class="snowflake">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
+        <img src="sun.png" alt="." class="snowflak">
     </div>
 
     <section id="about" class="container my-5">
@@ -83,7 +105,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Создание сайтов</h5>
                         <p class="card-text">
-                            <span style="text-decoration: line-through;">10 USD</span> <strong>7 USD</strong>
+                            <strong>10 USD</strong>
                         </p>
                         <button class="btn btn-primary" onclick="addToCart('Создание сайтов')">Добавить в корзину</button>
                     </div>
@@ -94,7 +116,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Регистрация домена</h5>
                         <p class="card-text">
-                            <span style="text-decoration: line-through;">5 USD</span> <strong>3 USD</strong>
+                            <strong>5 USD</strong>
                         </p>
                         <button class="btn btn-primary" onclick="addToCart('Регистрация домена')">Добавить в корзину</button>
                     </div>
@@ -105,7 +127,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Создание приложений</h5>
                         <p class="card-text">
-                            <span style="text-decoration: line-through;">15 USD</span> <strong>12 USD</strong>
+                            <strong>15 USD</strong>
                         </p>
                         <button class="btn btn-primary" onclick="addToCart('Создание приложений')">Добавить в корзину</button>
                     </div>
@@ -116,7 +138,7 @@
                     <div class="card-body">
                         <h5 class="card-title">SSL-сертификаты</h5>
                         <p class="card-text">
-                            <strong><span id="usdCountdown"></span></strong>
+                            <span style="text-decoration: line-through;">2 USD</span> <strong>Бесплатно</strong>
                         </p>
                         <button class="btn btn-primary" onclick="addToCart('SSL-сертификаты')">Добавить в корзину</button>
                     </div>
@@ -203,7 +225,7 @@
     </section>
 
     <footer class="footer">
-        <p>© 2024 Все права защищены. Version 3.4.2. We are waiting for the New Year!</p>
+        <p>© 2025 Все права защищены. Version 3.4.3. We are waiting for June!</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -227,7 +249,7 @@
 <script>
     function updateCountdown() {
         const now = new Date();
-        const newYear = new Date('January 1, 2025 00:00:00');
+        const newYear = new Date('June 1, 2025 00:00:00');
         const difference = newYear - now;
 
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -235,7 +257,7 @@
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        document.getElementById('countdown').innerText = `Новий год через: ${days} д. ${hours} ч. ${minutes} м. ${seconds} с.`;
+        document.getElementById('countdown').innerText = `Лето через: ${days} д. ${hours} ч. ${minutes} м. ${seconds} с.`;
     }
 
     // Запускаем обновление таймера каждую секунду
@@ -310,14 +332,13 @@
     // Функция создания снежинок
     function createSnowflak() {
         const snowflak = document.createElement('div');
-        snowflak.innerText = '❄'; // Символ снежинки
-        snowflak.classList.add('snowflak');
+        snowflak.innerText = '❀'; // Символ снежинки
+        snowflak.classList.add('sun');
         snowflak.style.left = Math.random() * window.innerWidth + 'px'; // Случайная горизонтальная позиция
-        snowflak.style.animationDuration = 5 + Math.random() * 20 + 's'; // Случайная длительность анимации
+        snowflak.style.animationDuration = 5 + Math.random() * 10 + 's'; // Случайная длительность анимации
         snowflak.style.opacity = Math.random(); // Случайная прозрачность
         snowflak.style.fontSize = Math.random() * 20 + 10 + 'px'; // Случайный размер снежинки
         document.body.appendChild(snowflak);
-
         // Удаление снежинки после завершения анимации
         snowflak.addEventListener('animationend', () => {
             snowflak.remove();
@@ -325,7 +346,7 @@
     }
 
     // Создание снежинок с интервалом
-    setInterval(createSnowflak, 120);
+    setInterval(createSnowflak, 1000);
 </script>
 <script async src="https://tally.so/widgets/embed.js"></script>
 </body>
