@@ -164,17 +164,10 @@
         <h2 class="text-center mb-4">Недавние отзывы</h2>
         <p>Отзывы клиентов за последние 7 дней:</p>
         <blockquote class="blockquote">
-            <p class="mb-0">Спасибо за сайт и домен.</p>
+            <p class="mb-0">Спасибо за комплект! Все супер!</p>
             <footer class="blockquote-footer">
                 <span class="stars">★★★★★</span>
-                Иван Иванов
-            </footer>
-        </blockquote>
-        <blockquote class="blockquote">
-            <p class="mb-0">Спс.</p>
-            <footer class="blockquote-footer">
-                <span class="stars">★★★★★</span>
-                Миша Сомик
+                Иван ...
             </footer>
         </blockquote>
         <a href="#tally-open=wo0yZ5&tally-layout=modal&tally-width=700" class="btn btn-info" target="_blank">Оставить одзыв</a>
@@ -249,15 +242,19 @@
 <script>
     function updateCountdown() {
         const now = new Date();
-        const newYear = new Date('June 1, 2025 00:00:00');
-        const difference = newYear - now;
+        const springEnd = new Date('June 1, 2025 00:00:00'); // Конец весны
+        const springStart = new Date('March 1, 2025 00:00:00'); // Начало весны
+        let difference;
 
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        document.getElementById('countdown').innerText = `Лето через: ${days} д. ${hours} ч. ${minutes} м. ${seconds} с.`;
+        if (now < springStart) {
+            difference = springStart - now;
+            document.getElementById('countdown').innerText = `Весна через: ${Math.floor(difference / (1000 * 60 * 60 * 24))} д. ${Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))} ч. ${Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))} м. ${Math.floor((difference % (1000 * 60)) / 1000)} с.`;
+        } else if (now < springEnd) {
+            difference = springEnd - now;
+            document.getElementById('countdown').innerText = `Весна заканчивается через: ${Math.floor(difference / (1000 * 60 * 60 * 24))} д. ${Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))} ч. ${Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))} м. ${Math.floor((difference % (1000 * 60)) / 1000)} с.`;
+        } else {
+            document.getElementById('countdown').innerText = "Весна закончилась!";
+        }
     }
 
     // Запускаем обновление таймера каждую секунду
