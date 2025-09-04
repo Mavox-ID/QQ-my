@@ -150,7 +150,6 @@
     <img src="Image.jpg" alt="О нас" class="img-fluid rounded shadow">
   </section>
 
-  <!-- Услуги -->
   <section id="services" class="container my-5">
     <h2 class="text-center neon-text mb-4">Our services</h2>
     <div class="row justify-content-center">
@@ -184,12 +183,53 @@
     <p>📧 Email: unercloaddatapacked@gmail.com</p>
   </section>
 
+<section id="cart" class="container my-5">
+  <h2 class="text-center neon-text">Cart</h2>
+  <ul id="cartList" class="list-group mb-4"></ul>
+  <button class="btn btn-success btn-block" onclick="checkout()">Place an order</button>
+</section>
+
   <footer class="footer text-center py-3">
     <p>© 2025 QQ-my | Version 347</p>
   </footer>
 
   <!-- Звезда -->
   <div class="shooting-star"></div>
+
+<script>
+  let cart = [];
+
+  function addToCart(item) {
+    cart.push(item);
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartList = document.getElementById('cartList');
+    cartList.innerHTML = '';
+    cart.forEach((item, index) => {
+      let li = document.createElement('li');
+      li.className = 'list-group-item d-flex justify-content-between align-items-center';
+      li.innerHTML = `${item} <button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">✖</button>`;
+      cartList.appendChild(li);
+    });
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+
+  function checkout() {
+    if (cart.length === 0) {
+      alert("Cart is empty! Add items before checkout.");
+      return;
+    }
+    alert("Order placed: " + cart.join(", "));
+    cart = [];
+    updateCart();
+  }
+</script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
