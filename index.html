@@ -1,3 +1,6 @@
+<!-- Version 45.05 -->
+<!-- Add for bot: google bot -->
+<!-- Do not copy -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,7 @@
   <title>QQ-my</title>
   <meta name="description" content="We build stunning websites and apps with cosmic-underwater vibes. Fast, responsive, animated, and ready for launch." />
   <meta name="theme-color" content="#061024" />
+  <meta name="google-adsense-account" content="ca-pub-6290851409223890">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Ctext y='50' x='10' font-size='48'%3E%F0%9F%8C%8C%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -439,6 +443,20 @@
   } finally {
     btn.disabled = false;
     btn.textContent = prev;
+  }
+});
+
+budgetInput.addEventListener('change', () => {
+  let val = parseInt(budgetInput.value, 10);
+  const min = parseInt(budgetInput.min, 10) || 5;
+  const max = parseInt(budgetInput.max, 10) || 5000;
+
+  if (val < min) {
+    toast('error', 'Invalid budget', `Minimum budget is $${min}`);
+    budgetInput.value = min;
+  } else if (val > max) {
+    toast('error', 'Invalid budget', `Maximum budget is $${max}`);
+    budgetInput.value = max;
   }
 });
 
