@@ -201,9 +201,28 @@
     .toast.success .icon{ color:var(--success) }
     .toast.error .icon{ color:var(--error) }
 
-    footer{ border-top:1px solid var(--border); background:linear-gradient(180deg,transparent,rgba(0,0,0,.35)); padding:2rem 1rem; color:var(--muted) }
-    .foot{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:center }
-    @media (max-width: 680px){ .foot{ grid-template-columns:1fr } }
+footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem 1rem;
+}
+
+.foot {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 680px) {
+  .foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 
     @media (prefers-reduced-motion: reduce) {
       *{ animation:none !important; transition:none !important; scroll-behavior:auto !important }
@@ -233,7 +252,6 @@
         <a href="#services">Services</a>
         <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-primary" style="text-decoration:none;">Get a Quote</a>
-        <a href="#estimate" class="btn btn-primary" style="text-decoration:none;">Estimate Project</a>
       </nav>
     </div>
   </header>
@@ -345,51 +363,6 @@
       </div>
     </div>
   </section>
-
-<section class="section" id="estimate" aria-labelledby="estimate-title">
-  <div class="wrap">
-    <h2 id="estimate-title">Estimate Your Project</h2>
-    <div class="contact" style="margin-top:1rem">
-      <form id="estimateForm" aria-label="Project estimation form" novalidate>
-        <input class="hp" type="text" name="_gotcha" autocomplete="off" tabindex="-1" aria-hidden="true">
-
-        <div class="row">
-          <div>
-            <label for="est-name">Full Name</label>
-            <input id="est-name" name="name" type="text" required placeholder="Surname Name Patronymic">
-          </div>
-          <div>
-            <label for="est-email">Email</label>
-            <input id="est-email" name="email" type="email" required placeholder="you@example.com" inputmode="email">
-          </div>
-        </div>
-
-        <div class="row">
-          <div>
-            <label for="est-type">Project type</label>
-            <select id="est-type" name="type">
-              <option>Website</option>
-              <option>Web App</option>
-              <option>Design only</option>
-              <option>Other</option>
-            </select>
-          </div>
-        </div>
-
-        <label for="est-message">Details / wishes</label>
-        <textarea id="est-message" name="message" placeholder="Tell us about your idea… features, deadline, references."></textarea>
-
-        <div class="actions">
-          <button class="btn btn-submit" type="submit">Send Estimate Request</button>
-          <span class="note">We’ll email you a copy of the request.</span>
-        </div>
-
-        <input type="hidden" name="_subject" value="Project evaluation - QQ-my">
-        <input type="hidden" name="_template" value="table">
-      </form>
-    </div>
-  </div>
-</section>
 
   <footer>
     <div class="foot">
@@ -528,61 +501,6 @@ budgetInput.addEventListener('input', () => {
       });
     }, {threshold:.12});
     document.querySelectorAll('.card, .price, .shot, .timeline .step, section h2').forEach(el=> observer.observe(el));
-
-const estimateForm = document.getElementById('estimateForm');
-
-estimateForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  const lastSend = localStorage.getItem('lastSendEstimate');
-  const today = new Date().toDateString();
-
-  if (lastSend === today) {
-    toast('error', 'Too soon', 'You can only send one estimate per day.');
-    return;
-  }
-
-  let ok = true;
-  estimateForm.querySelectorAll('[required]').forEach(el => {
-    if (!el.value.trim()) { ok = false; el.style.borderColor = '#ff5b5b'; }
-    else { el.style.borderColor = '#194066'; }
-  });
-
-  if (!ok) { 
-    toast('error', 'Check fields', 'Please fill required fields correctly.'); 
-    return; 
-  }
-
-  const data = new FormData(estimateForm);
-  data.append('_replyto', estimateForm.querySelector('[name="email"]').value.trim());
-
-  const btn = estimateForm.querySelector('button[type="submit"]');
-  const prev = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-
-  try {
-    const res = await fetch(FORM_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: data
-    });
-
-    if (res.ok) {
-      estimateForm.reset();
-      localStorage.setItem('lastSendEstimate', today);
-      toast('success', 'Sent!', 'We’ve received your estimate request. Check your inbox.');
-    } else {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err?.error || 'Submission failed');
-    }
-  } catch(err) {
-    toast('error', 'Couldn’t send', String(err.message || err));
-  } finally {
-    btn.disabled = false;
-    btn.textContent = prev;
-  }
-});
   </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6290851409223890"
      crossorigin="anonymous"></script>
