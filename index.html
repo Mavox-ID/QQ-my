@@ -217,23 +217,53 @@ footer {
   gap: 1rem;
 }
 
+.nav {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .8rem 1rem;
+  gap: 1rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: 'Orbitron', sans-serif;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.logo-link:focus,
+.logo-link:active {
+  outline: none;
+  box-shadow: none;
+}
+
+nav {
+  display: flex;
+  gap: .5rem;
+}
+
 @media (max-width: 640px){
   .nav {
-    flex-direction: column;    
-    align-items: flex-start;     
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   nav {
-    width: 100%;
+    flex: 1;
+    justify-content: flex-end;
+    gap: .25rem;
   }
 
   nav a {
-    display: block;
-    width: 100%;
-    margin: 0.25rem 0;
-    padding: 0.6rem 1rem;
+    display: inline-flex;
+    padding: .4rem .6rem;
     text-align: center;
   }
 }
@@ -256,19 +286,21 @@ footer {
     </div>
   </div>
 
-  <header>
-    <div class="nav">
-      <div class="brand">
+<header>
+  <div class="nav">
+    <div class="brand">
+      <a href="#home" class="logo-link">
         <div class="logo" aria-hidden="true"></div>
         <span>QQ-my</span>
-      </div>
-      <nav aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn btn-primary" style="text-decoration:none;">Get a Quote</a>
-      </nav>
+      </a>
     </div>
-  </header>
+    <nav aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn-primary" style="text-decoration:none;">Get a Quote</a>
+    </nav>
+  </div>
+</header>
 
   <section class="hero" id="home">
     <div class="kicker">From deep sea to deep space</div>
