@@ -238,6 +238,26 @@ header {
     @media (prefers-reduced-motion: reduce) {
       *{ animation:none !important; transition:none !important; scroll-behavior:auto !important }
     }
+
+.layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: repeat;
+  background-position: center;
+  will-change: transform, opacity;
+}
+
+body > *:not(.layer) {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
   </style>
 </head>
 <body>
