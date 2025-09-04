@@ -217,10 +217,24 @@ footer {
   gap: 1rem;
 }
 
-@media (max-width: 680px) {
-  .foot {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 640px){
+  .nav {
+    flex-direction: column;    
+    align-items: flex-start;     
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    margin: 0.25rem 0;
+    padding: 0.6rem 1rem;
+    text-align: center;
   }
 }
 
@@ -328,8 +342,8 @@ footer {
               <label for="type">Project type</label>
               <select id="type" name="type">
                 <option>Website</option>
-                <option>Web App</option>
-                <option>Design only</option>
+                <option>Android App</option>
+                <option>Design/Animation Only</option>
                 <option>Other</option>
               </select>
             </div>
