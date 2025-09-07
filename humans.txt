@@ -1,0 +1,13 @@
+/* TEAM */
+Developers: Mark Voznyuk, Misha Somik
+Site: https://qq-my.pp.ua
+Contact: markd.voznyuk@gmail.com
+
+/* THANKS */
+Inspired by: Development ✨
+Made with ❤️ in Ukraine
+
+/* TECHNOLOGY */
+Language: HTML5, CSS3, JS
+Frameworks: Tailwind, Astro/React
+Server: Claudflare
