@@ -1,4 +1,4 @@
-<!-- Version 45.05 -->
+<!-- Version 45.06 -->
 <!-- Add for bot: google bot -->
 <!-- Do not copy -->
 <!DOCTYPE html>
@@ -9,7 +9,6 @@
   <title>QQ-my</title>
   <meta name="description" content="We build stunning websites and apps with cosmic-underwater vibes. Fast, responsive, animated, and ready for launch." />
   <meta name="theme-color" content="#061024" />
-  <meta name="google-adsense-account" content="ca-pub-6290851409223890">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Ctext y='50' x='10' font-size='48'%3E%F0%9F%8C%8C%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -285,6 +284,7 @@ body {
       <a href="#services">Services</a>
       <a href="#faq">FAQ</a>
       <a href="#contact" class="btn btn-primary" style="text-decoration:none;">Get a Quote</a>
+      <a href="#priceproject" class="btn btn-primary" style="text-decoration:none;">Estimate project</a>
     </nav>
   </div>
 </header>
@@ -295,6 +295,7 @@ body {
     <p class="sub">High-performance, animated, accessible, and future-proof. You bring the idea — we bring rocket fins and jellyfish tentacles.</p>
     <div class="cta">
       <a href="#contact" class="btn btn-primary">Start a Project</a>
+      <a href="#estproject" class="btn btn-primary">Get Estimate project</a>
     </div>
   </section>
 
@@ -392,6 +393,56 @@ body {
           </ul>
           <h3 style="margin-top:1rem">Contacts</h3>
           <p class="note">Email: <a href="mailto:markd.voznyuk@gmail.com">markd.voznyuk@gmail.com</a></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="estproject" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Find out the price of the project</h2>
+      <div class="contact" style="margin-top:1rem">
+        <form id="orderForm" aria-label="Project request form" novalidate>
+          <input class="hp" type="text" name="_gotcha" autocomplete="off" tabindex="-1" aria-hidden="true">
+          <div class="row">
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" required placeholder="Surname Name Patronymic">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com" inputmode="email">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="type">Project type</label>
+              <select id="type" name="type">
+                <option>Website</option>
+                <option>Android App</option>
+                <option>Design/Animation Only</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <label for="message">Details / wishes</label>
+          <textarea id="message" name="message" placeholder="Tell us about your idea… features, deadline, references."></textarea>
+          <div class="actions">
+            <button class="btn btn-submit" type="submit">Send Order</button>
+            <span class="note">We’ll email you a copy of the request.</span>
+          </div>
+          <input type="hidden" name="_subject" value="New Order — QQ-my">
+          <input type="hidden" name="_template" value="table">
+        </form>
+
+        <aside class="card">
+          <h3>Why not just create a project?</h3>
+          <ul>
+            <li>1. Before creating a project, you need to know the price for creating such a project</li>
+            <li>2. If, for example, the project will cost $70 and you set it less in the budget, you may get something slightly different from what you want.</li>
+            <li>--------------------</li>
+            <li>You can find out the price of the project for free and then buy a website, application, etc. from us or other companies. For the budget that we said is suitable for your project.</li>
+          </ul>
         </aside>
       </div>
     </div>
@@ -535,7 +586,5 @@ budgetInput.addEventListener('input', () => {
     }, {threshold:.12});
     document.querySelectorAll('.card, .price, .shot, .timeline .step, section h2').forEach(el=> observer.observe(el));
   </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6290851409223890"
-     crossorigin="anonymous"></script>
 </body>
 </html>
