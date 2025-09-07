@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://qq-my.pp.ua/sitemap.xml
