@@ -1,4 +1,4 @@
-<!-- Version 45.09 -->
+<!-- Version 45.10 -->
 <!-- Add for GSC -->
 <!-- Do not copy -->
 <!DOCTYPE html>
@@ -317,6 +317,7 @@ body {
     <div class="cta">
       <a href="#contact" class="btn btn-primary">Start a Project</a>
       <a href="#estproject" class="btn btn-primary">Get Estimate project</a>
+      <a href="#delserver" class="btn btn-primary">Dedicated Server</a>
     </div>
   </section>
 
@@ -452,7 +453,7 @@ body {
             <button class="btn btn-submit" type="submit">Send Order</button>
             <span class="note">We’ll email you a copy of the request.</span>
           </div>
-          <input type="hidden" name="_subject" value="New Order — QQ-my">
+          <input type="hidden" name="_subject" value="New Order for test price — QQ-my">
           <input type="hidden" name="_template" value="table">
         </form>
 
@@ -464,6 +465,72 @@ body {
             <li>--------------------</li>
             <li>You can find out the price of the project for free and then buy a website, application, etc. from us or other companies. For the budget that we said is suitable for your project.</li>
           </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="delserver" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Dedicated Server</h2>
+      <div class="contact" style="margin-top:1rem">
+        <form id="orderForm" aria-label="Project request form" novalidate>
+          <input class="hp" type="text" name="_gotcha" autocomplete="off" tabindex="-1" aria-hidden="true">
+          <div class="row">
+            <div>
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" required placeholder="Surname Name Patronymic">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com" inputmode="email">
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="type">Server type</label>
+              <select id="type" name="type">
+                <option>Script</option>
+                <option>Bot</option>
+                <option>Program</option>
+                <option>Web</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="budget">Budget per week: $</label>
+              <small style="display:block; font-size: 12px; color: #888; margin-top: 4px;">
+              Also, keep in mind that if your script, etc. is very large or demanding, the amount should be higher; you can change it at any time.
+              </small>
+              <input id="budget" name="budget" type="number" min="1" max="1000" value="5" step="1" placeholder="Enter your budget per week">
+
+            </div>
+          </div>
+          <label for="message">Information about your idea</label>
+          <textarea id="message" name="message" placeholder="Write what you want to do with the server, why, what kind of script, etc."></textarea>
+          <div class="actions">
+            <button class="btn btn-submit" type="submit">Send Order</button>
+            <span class="note">We’ll email you a copy of the request.</span>
+          </div>
+          <input type="hidden" name="_subject" value="New Order for Del. Server — QQ-my">
+          <input type="hidden" name="_template" value="table">
+        </form>
+
+        <aside class="card">
+          <h3>What is a dedicated server?</h3>
+          <ul>
+            <li>This is a server for running tasks, scripts, etc. For your needs or purposes.</li>
+            </ul>
+            <h3>For what?</h3>
+          <ul>
+            <li>For example, you have a website, but the order system doesn't work there, and for a low price you can buy a server to run your own small script that processes orders and sends them to you, and this is just one idea, and there are many more.</li>
+          </ul>
+            <h3>Why us?</h3>
+            <ul>
+            <li>A powerful processor that runs 24/7 on ASO OS and will handle all your tasks</li>
+          </ul>
+          <h3 style="margin-top:1rem">Contacts</h3>
+          <p class="note">Email: <a href="mailto:markd.voznyuk@gmail.com">markd.voznyuk@gmail.com</a></p>
         </aside>
       </div>
     </div>
@@ -563,7 +630,7 @@ body {
     if (res.ok) {
       form.reset();
       localStorage.setItem('lastSend', today);
-      toast('success', 'Sent!', 'We’ve received your order. Check your inbox.');
+      toast('success', 'Sent!', 'We’ve received your order. Check your inbox for a reply.');
     } else {
       const err = await res.json().catch(() => ({}));
       throw new Error(err?.error || 'Submission failed');
