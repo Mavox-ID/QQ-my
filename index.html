@@ -425,7 +425,7 @@ body {
     <div class="wrap">
       <h2 id="contact-title">Find out the price of the project</h2>
       <div class="contact" style="margin-top:1rem">
-        <form id="orderForm" aria-label="Project request form" novalidate>
+        <form id="estimateForm" aria-label="Project request form" novalidate>
           <input class="hp" type="text" name="_gotcha" autocomplete="off" tabindex="-1" aria-hidden="true">
           <div class="row">
             <div>
@@ -475,7 +475,7 @@ body {
     <div class="wrap">
       <h2 id="contact-title">Dedicated Server</h2>
       <div class="contact" style="margin-top:1rem">
-        <form id="orderForm" aria-label="Project request form" novalidate>
+        <form id="serverForm" aria-label="Project request form" novalidate>
           <input class="hp" type="text" name="_gotcha" autocomplete="off" tabindex="-1" aria-hidden="true">
           <div class="row">
             <div>
@@ -583,23 +583,29 @@ body {
       box._t = setTimeout(()=> box.classList.remove('show'), 5000);
     };
 
-    const FORM_ENDPOINT = 'https://formspree.io/f/xpwjoddl';
-    const form = $('#orderForm');
+const FORM_ENDPOINT = 'https://formspree.io/f/xpwjoddl';
 
-    const validate = () => {
-      let ok = true;
-      form.querySelectorAll('[required]').forEach(el => {
-        if (!el.value.trim()) { ok = false; el.setAttribute('aria-invalid','true'); el.style.borderColor = '#ff5b5b'; }
-        else { el.removeAttribute('aria-invalid'); el.style.borderColor = '#194066'; }
-      });
-      const email = $('#email').value.trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { ok = false; $('#email').style.borderColor = '#ff5b5b'; }
-      return ok;
-    };
+const validateForm = (form) => {
+  let ok = true;
+  form.querySelectorAll('[required]').forEach(el => {
+    if (!el.value.trim()) { 
+      ok = false; 
+      el.setAttribute('aria-invalid', 'true'); 
+      el.style.borderColor = '#ff5b5b'; 
+    } else { 
+      el.removeAttribute('aria-invalid'); 
+      el.style.borderColor = '#194066'; 
+    }
+  });
+  const email = form.querySelector('#email').value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { 
+    ok = false; 
+    form.querySelector('#email').style.borderColor = '#ff5b5b'; 
+  }
+  return ok;
+};
 
-    form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
+const handleSubmit = async (form) => {
   const lastSend = localStorage.getItem('lastSend');
   const today = new Date().toDateString();
 
@@ -608,13 +614,13 @@ body {
     return;
   }
 
-  if (!validate()) { 
+  if (!validateForm(form)) { 
     toast('error', 'Check fields', 'Please fill required fields correctly.'); 
     return; 
   }
 
   const data = new FormData(form);
-  data.append('_replyto', $('#email').value.trim());
+  data.append('_replyto', form.querySelector('#email').value.trim());
 
   const btn = form.querySelector('button[type="submit"]');
   const prev = btn.textContent;
@@ -636,30 +642,40 @@ body {
       const err = await res.json().catch(() => ({}));
       throw new Error(err?.error || 'Submission failed');
     }
-  } catch(err) {
+  } catch (err) {
     toast('error', 'Couldn’t send', String(err.message || err));
   } finally {
     btn.disabled = false;
     btn.textContent = prev;
   }
+};
+
+['orderForm', 'estimateForm', 'serverForm'].forEach(formId => {
+  const form = document.getElementById(formId);
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await handleSubmit(form);
+    });
+  }
 });
 
-const budgetInput = document.getElementById('budget');
+document.querySelectorAll('input[name="budget"]').forEach(budgetInput => {
+  budgetInput.addEventListener('input', () => {
+    let val = parseInt(budgetInput.value, 10);
+    const min = parseInt(budgetInput.getAttribute('min'), 10) || 1;
+    const max = parseInt(budgetInput.getAttribute('max'), 10) || 5000;
 
-budgetInput.addEventListener('input', () => {
-  let val = parseInt(budgetInput.value, 10);
-  const min = parseInt(budgetInput.min, 10) || 5;
-  const max = parseInt(budgetInput.max, 10) || 5000;
+    if (isNaN(val)) return;
 
-  if (isNaN(val)) return;
-
-  if (val < min) {
-    toast('error', 'Invalid budget', `Minimum budget is $${min}`);
-    budgetInput.value = min;
-  } else if (val > max) {
-    toast('error', 'Invalid budget', `Maximum budget is $${max}`);
-    budgetInput.value = max;
-  }
+    if (val < min) {
+      toast('error', 'Invalid budget', `Minimum budget is $${min}`);
+      budgetInput.value = min;
+    } else if (val > max) {
+      toast('error', 'Invalid budget', `Maximum budget is $${max}`);
+      budgetInput.value = max;
+    }
+  });
 });
 
     const observer = new IntersectionObserver((entries)=>{
